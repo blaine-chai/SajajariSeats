@@ -30,30 +30,30 @@ public class MainActivity extends Activity implements OnClickListener {
 		tv[3] = (TextView) findViewById(R.id.textView4);
 		tv[4] = (TextView) findViewById(R.id.textView5);
 		t = (Button) findViewById(R.id.button1);
-		// ¹é³²ÇĞ¼úÁ¤º¸°ü Á¤º¸ ÆÄ½Ì
+		// ë°±ë‚¨í•™ìˆ ì •ë³´ê´€ ì •ë³´ íŒŒì‹±
 		Htmlparser p = new Htmlparser();
-		Structure tStruct = new Structure("¹é³²ÇĞ¼úÁ¤º¸°ü");
+		Structure tStruct = new Structure("ë°±ë‚¨í•™ìˆ ì •ë³´ê´€");
 
 		p.setDoc(false, "7");
-		Room tRoom = new Room(p.getUsed(), p.getUnused(), "Áß¾Óµµ¼­°ü Á¦1¿­¶÷½Ç");
+		Room tRoom = new Room(p.getUsed(), p.getUnused(), "ì¤‘ì•™ë„ì„œê´€ ì œ1ì—´ëŒì‹¤");
 		p.setDoc(false, "8");
 		tRoom.setRoom(p.getUsed(), p.getUnused());
 		tStruct.addRoom(tRoom, 0);
 
 		p.setDoc(false, "9");
-		tRoom = new Room(p.getUsed(), p.getUnused(), "Áß¾Óµµ¼­°ü Á¦2¿­¶÷½Ç");
+		tRoom = new Room(p.getUsed(), p.getUnused(), "ì¤‘ì•™ë„ì„œê´€ ì œ2ì—´ëŒì‹¤");
 		p.setDoc(false, "10");
 		tRoom.setRoom(p.getUsed(), p.getUnused());
 		tStruct.addRoom(tRoom, 1);
 
 		p.setDoc(false, "5");
-		tRoom = new Room(p.getUsed(), p.getUnused(), "Áß¾Óµµ¼­°ü Á¦3¿­¶÷½Ç");
+		tRoom = new Room(p.getUsed(), p.getUnused(), "ì¤‘ì•™ë„ì„œê´€ ì œ3ì—´ëŒì‹¤");
 		p.setDoc(false, "6");
 		tRoom.setRoom(p.getUsed(), p.getUnused());
 		tStruct.addRoom(tRoom, 2);
 
 		p.setDoc(false, "11");
-		tRoom = new Room(p.getUsed(), p.getUnused(), "Áß¾Óµµ¼­°ü Á¦4¿­¶÷½Ç");
+		tRoom = new Room(p.getUsed(), p.getUnused(), "ì¤‘ì•™ë„ì„œê´€ ì œ4ì—´ëŒì‹¤");
 		p.setDoc(false, "12");
 		tRoom.setRoom(p.getUsed(), p.getUnused());
 		tStruct.addRoom(tRoom, 3);
@@ -76,13 +76,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			int i;
 			for (i = 0; i < 4; i++) {
 				tv[i + 1].setText(sList.get(0).getRlist().get(i).getRoomName()
-						+ "\nÀüÃ¼ÁÂ¼®: "
+						+ "\nì „ì²´ì¢Œì„: "
 						+ sList.get(0).getRlist().get(i).getSeatNum()
-						+ "\nºóÁÂ¼®: "
+						+ "\në¹ˆì¢Œì„: "
 						+ sList.get(0).getRlist().get(i).getEmpty()
-						+ "\n»ç¿ëÁß:"
+						+ "\nì‚¬ìš©ì¤‘:"
 						+ sList.get(0).getRlist().get(i).getFilled()
-						+ "\nÆÛ¼¾Æ®"
+						+ "\ní¼ì„¼íŠ¸"
 						+ String.format("%.2f", sList.get(0).getRlist().get(i)
 								.getPercent()));
 			}
