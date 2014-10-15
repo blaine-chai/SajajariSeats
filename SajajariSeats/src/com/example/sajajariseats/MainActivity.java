@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.sajajariseats.datasets.Room;
 import com.example.sajajariseats.datasets.Structure;
-import com.example.sajajariseats.functions.Htmlparser;
+import com.example.sajajariseats.functions.HtmlParser;
 
 public class MainActivity extends Activity implements OnClickListener {
 	TextView tv[] = new TextView[5];
@@ -30,10 +30,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		tv[3] = (TextView) findViewById(R.id.textView4);
 		tv[4] = (TextView) findViewById(R.id.textView5);
 		t = (Button) findViewById(R.id.button1);
+		
+		int idxNumOfJungDoRoom[] = new int[] {7,8,9,10,5,6,11,12};
+		int idxNumOfLaw[] = new int[] {1,2,3,4};
 		// 백남학술정보관 정보 파싱
-		Htmlparser p = new Htmlparser();
+		HtmlParser p = new HtmlParser();
 		Structure tStruct = new Structure("백남학술정보관");
-
 		p.setDoc(false, "7");
 		Room tRoom = new Room(p.getUsed(), p.getUnused(), "중앙도서관 제1열람실");
 		p.setDoc(false, "8");

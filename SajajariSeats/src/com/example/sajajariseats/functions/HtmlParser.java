@@ -4,13 +4,15 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class Htmlparser {
+public class HtmlParser {
 	final static private String BASE_URL = "http://166.104.27.81/seat";
 	final static private String LAW = "L/roomview5.asp?room_no=";
 	final static private String STANDARD = "S/roomview5.asp?room_no=";
 	private Document doc;
 	private Elements used;
 	private Elements unused;
+	private ArrayList<Structure> structureList= new 
+	
 
 	public Document setDoc(boolean isLaw, String roomNum) {
 		try {
@@ -27,7 +29,6 @@ public class Htmlparser {
 	}
 
 	private void setUsed(Document doc) {
-//		Log.d("dskjfklsfdsfsfsf", doc.);
 		used = doc.select("div table tr td[bgcolor*=red]");
 	}
 
