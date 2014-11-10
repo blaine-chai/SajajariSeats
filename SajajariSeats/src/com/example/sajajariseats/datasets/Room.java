@@ -1,4 +1,4 @@
-package com.example.sajajariseats.datasets;
+package com.kyudevelop.sajajari.data;
 
 import java.util.ArrayList;
 
@@ -6,57 +6,48 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Room {
-	private String roomName;
-	private int seatNum;
+	private int maxSeatNum;
 	private ArrayList<Integer> emptySeatList = new ArrayList<Integer>();
-	private double percent;
-	private int filled;
-	private int empty;
+	private RoomTotalData totalInfo;
 
-	public Room(Elements unused, int seatNum, String roomName) {
+//	public Room() {
+//	}
+
+	public Room(Elements unused, int idx) {
 		for (Element e : unused) {
 			emptySeatList.add(Integer.parseInt(e.text()));
 		}
 
-		this.empty = emptySeatList.size();
-		this.filled = seatNum - this.empty;
-		this.seatNum = seatNum;
-		this.percent = ((double) filled * 100 / (filled + empty));
-		this.roomName = roomName;
+		this.totalInfo.setEmpty(emptySeatList.size());
+		this.totalInfo.setFilled(RoomList.getMaxNumSeatList(idx)
+				- this.totalInfo.getEmpty());
+		this.totalInfo
+				.setPercent(((double) this.totalInfo.getFilled() * 100 / (this.totalInfo
+						.getFilled() + this.totalInfo.getEmpty())));
 	}
 
-	public void setRoom(Elements unused) {
-
-		for (Element e : unused) {
-			emptySeatList.add(Integer.parseInt(e.text()));
-		}
-
-		this.empty = emptySeatList.size();
-		this.filled = this.seatNum - this.empty;
-		this.percent = ((double) filled * 100 / (filled + empty));
+	public int getMaxSeatNum() {
+		return maxSeatNum;
 	}
 
-	public int getSeatNum() {
-		return this.seatNum;
-	}
-
-	public double getPercent() {
-		return this.percent;
+	public void setMaxSeatNum(int maxSeatNum) {
+		this.maxSeatNum = maxSeatNum;
 	}
 
 	public ArrayList<Integer> getEmptySeatList() {
-		return this.emptySeatList;
+		return emptySeatList;
 	}
 
-	public String getRoomName() {
-		return this.roomName;
+	public void setEmptySeatList(ArrayList<Integer> emptySeatList) {
+		this.emptySeatList = emptySeatList;
 	}
 
-	public int getFilled() {
-		return this.filled;
+	public RoomTotalData getTotalInfo() {
+		return totalInfo;
 	}
 
-	public int getEmpty() {
-		return this.empty;
+	public void setTotalInfo(RoomTotalData totalInfo) {
+		this.totalInfo = totalInfo;
 	}
+
 }

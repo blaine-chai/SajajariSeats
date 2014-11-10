@@ -30,9 +30,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		tv[3] = (TextView) findViewById(R.id.textView4);
 		tv[4] = (TextView) findViewById(R.id.textView5);
 		t = (Button) findViewById(R.id.button1);
-		
-		int idxNumOfJungDoRoom[] = new int[] {7,8,9,10,5,6,11,12};
-		int idxNumOfLaw[] = new int[] {1,2,3,4};
+
+		int idxNumOfJungDoRoom[] = new int[] { 7, 8, 9, 10, 5, 6, 11, 12 };
+		int idxNumOfLaw[] = new int[] { 1, 2, 3, 4 };
 		// 백남학술정보관 정보 파싱
 		HtmlParser p = new HtmlParser();
 		Structure tStruct = new Structure("백남학술정보관");
